@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         tvregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //startActivity(new Intent(getApplicationContext(), Registrasi.class));
+                startActivity(new Intent(getApplicationContext(), Registrasi.class));
             }
         });
         txtusername = (EditText)findViewById(R.id.txtusername);
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AndroidNetworking.post("http://192.168.6.145/sepeda/login.php")
+                AndroidNetworking.post("http://192.168.43.39/sepeda/login.php")
                         .addBodyParameter("username", txtusername.getText().toString())
                         .addBodyParameter("password", txtpassword.getText().toString())
                         .setTag("test")
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                                     Log.d("RBA", "url: " + hasil.toString());
                                     Boolean respon= hasil.getBoolean("respon");
                                     if (respon){
-                                        //Toast.makeText(MainActivity.this, "Sukses Login", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(MainActivity.this, "Sukses Login", Toast.LENGTH_SHORT).show();
                                         startActivity(new Intent(getApplicationContext(), MainMenu.class));
                                     }else{
                                         Toast.makeText(MainActivity.this, "Gagal Login", Toast.LENGTH_SHORT).show();
